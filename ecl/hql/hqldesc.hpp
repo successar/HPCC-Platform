@@ -18,7 +18,17 @@
 #ifndef HQLDESC_INCL
 #define HQLDESC_INCL
 
+enum inherit_type : unsigned short {
+    inherited,
+    override,
+    local
+};
+
 void expandScopeSymbolsMeta(IPropertyTree * meta, IHqlScope * scope);
+void expandFunctionMeta(IPropertyTree * meta, IHqlExpression * expr);
+void expandScopeMeta(IPropertyTree * meta, IHqlExpression * expr);
+void expandParamMeta(IPropertyTree * meta, IHqlExpression * expr);
+
 
 extern void getFullName(StringBuffer & name, IHqlExpression * expr);
 extern void setFullNameProp(IPropertyTree * tree, const char * prop, const char * module, const char * def);
